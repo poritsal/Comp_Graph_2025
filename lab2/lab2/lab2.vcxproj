@@ -179,8 +179,8 @@
     </FxCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
     <ClCompile Include="renderer.cpp" />
+    <ClCompile Include="triangle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="renderer.h" />
