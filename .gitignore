@@ -22,3 +22,5 @@ Release/
 *.pch
 *.ipch
 *.db
+*.cso
+*.aps
