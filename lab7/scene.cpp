@@ -67,8 +67,8 @@ bool Scene::framePlanes(ID3D11DeviceContext* context, XMMATRIX viewMatrix, XMMAT
     return failed;
 }
 
-bool Scene::frame(ID3D11DeviceContext* context, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, XMFLOAT3 cameraPos, bool fixFrustumCulling) {
-    bool failed = cube.frame(context, viewMatrix, projectionMatrix, cameraPos, lights, fixFrustumCulling);
+bool Scene::frame(ID3D11DeviceContext* context, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, XMFLOAT3 cameraPos) {
+    bool failed = cube.frame(context, viewMatrix, projectionMatrix, cameraPos, lights);
     if (failed)
         return false;
 

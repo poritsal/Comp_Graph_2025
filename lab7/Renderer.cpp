@@ -255,9 +255,6 @@ bool Renderer::frame() {
     ImGui::NewFrame();
     {
         ImGui::Begin("ImGui");
-        #ifdef _DEBUG
-        ImGui::Checkbox("Fix Frustum Culling", &m_fixFrustumCulling);
-        #endif
         ImGui::Checkbox("Sobel filter", &m_usePosteffect);
         ImGui::End();
     }
@@ -274,7 +271,7 @@ bool Renderer::frame() {
     float aspectRatio = (float)m_height / m_width;
     XMMATRIX mProjection = XMMatrixPerspectiveLH(tanf(fov / 2) * 2 * f, tanf(fov / 2) * 2 * f * aspectRatio, f, n);
 
-    HRESULT hr = scene.frame(g_pImmediateContext, mView, mProjection, camera.getPos(), m_fixFrustumCulling);
+    HRESULT hr = scene.frame(g_pImmediateContext, mView, mProjection, camera.getPos());
     if (FAILED(hr))
         return FAILED(hr);
 

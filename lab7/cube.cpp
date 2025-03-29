@@ -398,7 +398,7 @@ bool Cube::isInFrustum(float maxWidth, float maxHeight, float maxDepth, float mi
 }
 
 bool Cube::frame(ID3D11DeviceContext* context, XMMATRIX& viewMatrix, XMMATRIX& projectionMatrix,
-        XMFLOAT3& cameraPos, const Light& lights, bool fixFrustumCulling) {
+        XMFLOAT3& cameraPos, const Light& lights) {
     auto duration = Timer::GetInstance().Clock();
     GeomBuffer geomBufferInst[MAX_CUBES];
     for (int i = 0; i < MAX_CUBES; i++) {
@@ -415,9 +415,7 @@ bool Cube::frame(ID3D11DeviceContext* context, XMMATRIX& viewMatrix, XMMATRIX& p
 
     context->UpdateSubresource(g_pGeomBuffer, 0, nullptr, &geomBufferInst, 0, 0);
 
-    if (!fixFrustumCulling) {
-        getFrustum(viewMatrix, projectionMatrix);
-    }
+    getFrustum(viewMatrix, projectionMatrix);
 
     static const XMFLOAT4 AABB[] = {
         {-0.5, -0.5, -0.5, 1.0},

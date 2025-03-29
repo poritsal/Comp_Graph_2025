@@ -27,7 +27,7 @@ public:
 	void resize(int screenWidth, int screenHeight) {};
 	void render(ID3D11DeviceContext* context);
 	bool frame(ID3D11DeviceContext* context, XMMATRIX& viewMatrix, XMMATRIX& projectionMatrix,
-		XMFLOAT3& cameraPos, const Light& lights, bool fixFrustumCulling);
+		XMFLOAT3& cameraPos, const Light& lights);
 
 private:
 	void getFrustum(XMMATRIX viewMatrix, XMMATRIX projectionMatrix);
